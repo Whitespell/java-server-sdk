@@ -1,0 +1,9 @@
+// initialize table apps with unique index api_key
+    --> initialize table sessions with index unique index session_key
+        --> initialize table variables with index variable_name
+    --> initialize table authorization with index authorization_key (stores authorization keys that are linked with an access level integer
+    --> initialize table actions with index action_id
+    --> initialize table events with index event_id
+    --> initialize table paths with index path_id (locally cached on edge nodes)
+
+// initialize table accounts with unique key account_id
