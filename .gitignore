@@ -1,2 +1,5 @@
 .idea/*
 whitespell-yoda.iml
+out/*
+.DS_STORE
+.DS_STORE/*
