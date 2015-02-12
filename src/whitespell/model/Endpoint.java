@@ -10,8 +10,7 @@ public interface Endpoint {
     /**
      * Endpoint is placed on the Whitespell Yoda server and handles incoming HTTP requests. Endpoints are dispatched using the API Dispatcher
      */
-    public abstract void handleGet();
-    public abstract void handlePost();
-    public abstract void handleUpdate();
-    public abstract void handleDelete();
+    public abstract void call();
+    public abstract void websocket();
+    public abstract void process();
 }

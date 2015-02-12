@@ -3,7 +3,7 @@ package whitespell.sample.MyApplication;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
-import whitespell.sample.MyApplication.api.TestHandler;
+import whitespell.sample.MyApplication.endpoints.TestHandler;
 import whitespell.model.WhitespellWebServer;
 import whitespell.logic.ApiDispatcher;
 

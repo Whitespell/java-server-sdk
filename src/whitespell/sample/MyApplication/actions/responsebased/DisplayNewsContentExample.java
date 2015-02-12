@@ -1,4 +1,4 @@
-package whitespell.sample.MyApplication.actions;
+package whitespell.sample.MyApplication.actions.responsebased;
 
 import whitespell.model.Action;
 import whitespell.model.ActionType;

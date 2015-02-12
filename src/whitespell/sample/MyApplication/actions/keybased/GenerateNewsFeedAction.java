@@ -1,12 +1,8 @@
-package whitespell.sample.MyApplication.actions;
+package whitespell.sample.MyApplication.actions.keybased;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 import whitespell.model.Action;
 import whitespell.model.ActionType;
 import whitespell.sample.MyApplication.MyIntelligence;
-
-import java.util.HashMap;
 
 /**
  * @author Pim de Witte(wwadewitte), Whitespell LLC

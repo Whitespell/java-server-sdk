@@ -1,8 +1,7 @@
 package whitespell.sample.MyApplication;
 
-import whitespell.model.ActionType;
 import whitespell.model.WhitespellIntelligence;
-import whitespell.sample.MyApplication.actions.GenerateNewsFeedAction;
+import whitespell.sample.MyApplication.actions.keybased.GenerateNewsFeedAction;
 
 /**
  * @author Pim de Witte(wwadewitte), Whitespell LLC

@@ -1,4 +1,4 @@
-package whitespell.sample.MyApplication.api;
+package whitespell.sample.MyApplication.endpoints;
 
 import whitespell.logic.ApiInterface;
 import whitespell.logic.RequestContext;
