@@ -1,5 +1,7 @@
 package whitespell.model;
 
+import whitespell.logic.RequestContext;
+
 import java.util.HashMap;
 
 /**
@@ -25,11 +27,25 @@ public abstract class Action {
 
     private final String actionName;
 
-    public String getActionName(){
-        return this.actionName;
-    }
+    /**
+     * The RequestContext object is only set when a direct request is made through HTTP.
+     */
+
+    private RequestContext context;
+
 
     private final ActionType actionType;
+
+    /**
+     * The session ID is provided when the action is requested from the intelligence. The reason for this is that the variables that are unlocked are only verified for this session iD.
+     * Therefore the cache can for example only cache the newsfeed for user x as a static object because this session can only be user x.
+     */
+    private String sessionId;
+
+    /**
+     * The variables that are required for the action to execute and their values
+     */
+
     private final HashMap<String, Object> variables = new HashMap<>();
 
     public Action(String actionName, ActionType actionType, String[] variables) {
@@ -66,5 +82,28 @@ public abstract class Action {
      * @return
      */
     protected abstract long cacheTime();
+
+    /**
+     * Returns the list of variables and their values
+     */
+    protected HashMap<String, Object> getVariables() {
+        return this.variables;
+    }
+
+    protected String getActionName(){
+        return this.actionName;
+    }
+
+    protected ActionType getActionType(){
+        return this.actionType;
+    }
+
+    protected String getSessionId(){
+        return this.sessionId;
+    }
+
+    protected RequestContext getContext() {
+        return this.context;
+    }
 
 }

@@ -13,4 +13,6 @@ public abstract class WhitespellIntelligence {
     public void addHandler(Action a) {
         System.out.println("Added handler interface: " + a.getActionName());
     }
+
+    public void updateCache(String url)
 }

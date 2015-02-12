@@ -1,21 +1,17 @@
 package whitespell.sample.MyApplication.actions;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 import whitespell.model.Action;
 import whitespell.model.ActionType;
 import whitespell.sample.MyApplication.MyIntelligence;
-
-import java.util.HashMap;
 
 /**
  * @author Pim de Witte(wwadewitte), Whitespell LLC
  *         2/4/15
  *         whitespell.sample.MyApplication.actions
  */
-public class GenerateNewsFeedAction extends Action {
+public class DisplayNewsContentExample extends Action {
 
-    public GenerateNewsFeedAction() {
+    public DisplayNewsContentExample() {
         super("Generate Newsfeed", ActionType.Java, new String[]{
                 "$userid"
         });
@@ -31,24 +27,18 @@ public class GenerateNewsFeedAction extends Action {
                 "{'post_id': '9870097', 'owner' : 'random_user_id', 'profile_photo' : 'http://cdn.yourdomain.com/profile_photos/my_photo-randomstring.jpg'}" +
                 "]";
 
-        String userId = (String) this.getVariables().get("$userid");
+        SmartCacheJsonArray sco = MyIntelligence.getSessions().set("/users/");
+        sco.setCachingLimit(100);
+        sco.addIndex("post_id");
 
-        SmartCacheJsonArray sco = MyIntelligence.getSessions().get("/users/" + userid + "/posts");
+        sco.setLimitingParameter("limit");
+        sco.setOffsetParameter("offset");
 
-        if(sco == null) {
-            sco.setCachingLimit(100); // this is the amount it will also return on a request with empty parameters,
-            /**
-             * If the user does a request that for example requests a range larger than these 100 objects, a request is sent to  the back-end and only the difference is served.
-             */
-            sco.addIndex("post_id");
-            sco.setLimitingParameter("limit");
-            sco.setOffsetParameter("offset");
-            sco.setMinParameter("min_post_id");
-            sco.setMaxParameter("max_post_id");
-        }
-        sco.putContent(newsfeed);
-        session.addCachableObject(sco);
+        sco.setMinParameter("min_post_id");
+        sco.setMaxParameter("max_post_id");
 
+
+        MyIntelligence.updateCache(this.getSessionId(), "/users/" + this.getVariables().get("$userid") + "/newsfeed");
     }
 
     @Override
