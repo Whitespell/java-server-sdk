@@ -20,7 +20,7 @@ public class GenerateNewsFeedAction extends Action {
     @Override
     protected void execute() {
 
-        Session session = MyIntelligence.getSession(this.getSessionId());
+        /*Session session = MyIntelligence.getSession(this.getSessionId());
         // generate newsfeed
 
         String newsfeed = "[" +
@@ -36,7 +36,7 @@ public class GenerateNewsFeedAction extends Action {
             /**
              * If the user does a request that for example requests a range larger than these 100 objects, a request is sent to  the back-end and only the difference is served.
              */
-            sco.addIndex("post_id");
+           /* sco.addIndex("post_id");
             sco.setLimitingParameter("limit");
             sco.setOffsetParameter("offset");
             sco.setMinParameter("min_post_id");
@@ -44,7 +44,7 @@ public class GenerateNewsFeedAction extends Action {
         }
         sco.putContent(newsfeed);
         session.addCachableObject(sco);
-
+*/
     }
 
     @Override

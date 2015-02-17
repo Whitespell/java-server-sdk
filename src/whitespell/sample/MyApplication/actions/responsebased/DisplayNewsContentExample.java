@@ -19,7 +19,7 @@ public class DisplayNewsContentExample extends Action {
 
     @Override
     protected void execute() {
-
+        /*
         Session session = MyIntelligence.getSession(this.getSessionId());
         // generate newsfeed
 
@@ -39,6 +39,7 @@ public class DisplayNewsContentExample extends Action {
 
 
         MyIntelligence.updateCache(this.getSessionId(), "/users/" + this.getVariables().get("$userid") + "/newsfeed");
+        */
     }
 
     @Override

@@ -16,8 +16,7 @@ public class MyIntelligence extends WhitespellIntelligence {
 
     @Override
     public void start() throws Exception {
-
-        this.addHandler(new GenerateNewsFeedAction());
+       // this.addHandler(new GenerateNewsFeedAction());
 
     }
 

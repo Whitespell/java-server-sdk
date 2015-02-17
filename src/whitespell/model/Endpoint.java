@@ -1,16 +1,19 @@
 package whitespell.model;
 
+import sun.security.provider.certpath.Vertex;
+import whitespell.logic.ApiInterface;
+import whitespell.logic.RequestContext;
+import whitespell.net.websockets.socketio.SocketIOClient;
+
+import java.util.HashMap;
+
 /**
  * @author Pim de Witte(wwadewitte), Whitespell LLC
  *         1/20/15
  *         whitespell.model
  */
-public interface Endpoint {
+public abstract class Endpoint implements ApiInterface {
 
-    /**
-     * Endpoint is placed on the Whitespell Yoda server and handles incoming HTTP requests. Endpoints are dispatched using the API Dispatcher
-     */
-    public abstract void call();
-    public abstract void websocket();
-    public abstract void process();
+    public abstract void call(RequestContext context);
+
 }
